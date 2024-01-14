@@ -18,7 +18,7 @@ public class Product_sorting_test extends BaseTestClass {
     }
 
     @Test(testName = "Перевірка сортування товарів", dataProvider = "sorting_methods")
-    public void Login_with_valid_data(String sorting_methods) throws InterruptedException {
+    public void Check_product_sorting(String sorting_methods) throws InterruptedException {
         ProductPage productPage = new ProductPage(driver);
 
         List<Product> List_1 = productPage.get_inventory_list();
