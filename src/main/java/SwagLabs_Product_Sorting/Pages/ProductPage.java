@@ -48,8 +48,8 @@ public class ProductPage {
         List<Product> productList = new ArrayList<>();
 
         for (WebElement product : inventory_list) {
-            String parsedName = product.findElement(By.cssSelector(String.valueOf(item_name))).getText();
-            String parsedPrice = product.findElement(By.cssSelector(String.valueOf(item_price))).getText();
+            String parsedName = product.findElement(By.cssSelector("div[class='inventory_item_name']")).getText();
+            String parsedPrice = product.findElement(By.cssSelector("div[class='inventory_item_price']")).getText();
 
             Double productPrice = Double.parseDouble(parsedPrice.replace("$", "").replace(",", ".").replace(" ", ""));
             Product productModel = new Product(parsedName, productPrice);

@@ -8,33 +8,13 @@ public class Sorting {
     public static Comparator<Product> getComparatorForSorting(SortingRules sortDirection) {
         switch (sortDirection) {
             case PRICE_LOW_TO_HIGH:
-                return new Comparator<Product>() {
-                    @Override
-                    public int compare(Product o1, Product o2) {
-                        return o1.getPrice().compareTo(o2.getPrice());
-                    }
-                };
+                return Comparator.comparing(Product::getPrice).thenComparing(Product::getName);
             case PRICE_HIGH_TO_LOW:
-                return new Comparator<Product>() {
-                    @Override
-                    public int compare(Product o1, Product o2) {
-                        return o2.getPrice().compareTo(o1.getPrice());
-                    }
-                };
+                return Comparator.comparing(Product::getPrice).reversed().thenComparing(Product::getName);
             case NAME_A_TO_Z:
-                return new Comparator<Product>() {
-                    @Override
-                    public int compare(Product o1, Product o2) {
-                        return o1.getName().compareTo(o2.getName());
-                    }
-                };
+                return Comparator.comparing(Product::getName).thenComparing(Product::getPrice);
             case NAME_Z_TO_A:
-                return new Comparator<Product>() {
-                    @Override
-                    public int compare(Product o1, Product o2) {
-                        return o2.getName().compareTo(o1.getName());
-                    }
-                };
+                return Comparator.comparing(Product::getName).reversed().thenComparing(Product::getPrice);
         }
         return null;
     }
