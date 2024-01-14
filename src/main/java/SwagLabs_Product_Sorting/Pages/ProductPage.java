@@ -35,15 +35,7 @@ public class ProductPage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public int checkProducts() {
-        return inventory_list.size();
-    }
-
-    public List<Product> get_inventory_list() throws InterruptedException {
-
-//        List<WebElement> productItems = WebDriverHolder.getInstance().getDriver().findElements(By.xpath("//div[@class='product-container']"));
-//        String xpathProductName = "div[class='right-block'] a[class='product-name']";
-//        String xpathProductPrice = "div[class='right-block'] div[class='content_price'] span[class='price product-price']";
+    public List<Product> get_inventory_list() {
 
         List<Product> productList = new ArrayList<>();
 
@@ -51,7 +43,7 @@ public class ProductPage {
             String parsedName = product.findElement(By.cssSelector("div[class='inventory_item_name']")).getText();
             String parsedPrice = product.findElement(By.cssSelector("div[class='inventory_item_price']")).getText();
 
-            Double productPrice = Double.parseDouble(parsedPrice.replace("$", "").replace(",", ".").replace(" ", ""));
+            Double productPrice = Double.parseDouble(parsedPrice.replace("$", ""));
             Product productModel = new Product(parsedName, productPrice);
 
             productList.add(productModel);
@@ -63,7 +55,5 @@ public class ProductPage {
         Select select = new Select(filter_container);
         select.selectByValue(SortingRules.getValue());
         Thread.sleep(1500);
-        //sleep(1500);
-        //return new ProductPage();
     }
 }

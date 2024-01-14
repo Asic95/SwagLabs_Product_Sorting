@@ -22,7 +22,6 @@ public class Product_sorting_test extends BaseTestClass {
         ProductPage productPage = new ProductPage(driver);
 
         List<Product> List_1 = productPage.get_inventory_list();
-        System.out.println("Manual sorted : " + List_1);
 
         productPage.sortBy((SortingRules.valueOf(sorting_methods)));    // виконуємо сортування на сайті
         List<Product> List_2 = productPage.get_inventory_list();        // зчитуємо відсортовані дані

@@ -2,8 +2,6 @@ package SwagLabs_Product_Sorting.Product;
 
 import java.util.Objects;
 
-//@Data
-//@Accessors(chain = true)
 public class Product {
     private String Name;
     public Double Price;
@@ -17,16 +15,8 @@ public class Product {
         return Name;
     }
 
-    public void setName(String name) {
-        Name = name;
-    }
-
     public Double getPrice() {
         return Price;
-    }
-
-    public void setPrice(Double price) {
-        Price = price;
     }
 
     @Override
