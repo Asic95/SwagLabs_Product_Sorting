@@ -17,7 +17,7 @@ public class Product_sorting_test extends BaseTestClass {
         return new Object[][]{{"NAME_A_TO_Z"}, {"NAME_Z_TO_A"}, {"PRICE_LOW_TO_HIGH"}, {"PRICE_HIGH_TO_LOW"}};
     }
 
-    @Test(testName = "Перевірка валідних даних юзерів", dataProvider = "sorting_methods")
+    @Test(testName = "Перевірка сортування товарів", dataProvider = "sorting_methods")
     public void Login_with_valid_data(String sorting_methods) throws InterruptedException {
         ProductPage productPage = new ProductPage(driver);
 
